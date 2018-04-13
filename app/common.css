@@ -1,0 +1,95 @@
+/* common css stylesheet */
+/* font-size */
+.font-size18px{
+    font-size: 18px;
+}
+.font-size16px{
+    font-size: 16px;
+}
+.font-bold{
+    font-weight: bold;
+}
+.width-50px{
+    width: 50px;
+}
+
+/* Spacing style */
+.padding24px{
+    padding:24px;
+}
+.padding15px{
+    padding:15px;
+}
+.padding-tb-5px{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.margin-bottom20px{
+    margin-bottom: 20px;
+}
+.margin-bottom10px{
+    margin-bottom: 10px;
+}
+.margin-right10px{
+    margin-right: 10px;
+}
+.margin-right30px{
+    margin-right: 30px;
+}
+.margin-top-n20px{
+    margin-bottom: -20px;
+}
+.margin-top-n10px{
+    margin-top: -10px;
+}
+/* Radious style */
+.border-radious-top3px{
+    border-radius: 3px 3px 0 0;
+}
+/* Display Style */
+.inline-block{
+    display: inline-block;
+}
+.block{
+    display: block;
+}
+
+/* Border style */
+.border-top-1px-ddd{
+    border-top: 1px solid #ddd;
+}
+.border-bottom-1px-ddd{
+    border-bottom: 1px solid #ddd;
+}
+.border-last-child-0:last-child{
+  border: 0;
+}
+
+/* Color Style */
+.bg-f6f8fa{
+    background-color: #f6f8fa;
+}
+.color-28a745{
+    color: #28a745;
+}
+.color-cb2431{
+    color: #cb2431;
+}
+.color-586069{
+    color:#586069 !important;
+}
+
+
+/* Position Style */
+.position-relative{
+    position: relative;
+}
+.position-absolute{
+    position: absolute;
+}
+.top-50{
+  top: 50%;
+}
+.right-20px{
+    right:20px;
+}
