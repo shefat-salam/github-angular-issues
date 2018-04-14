@@ -42,7 +42,7 @@ nav ul li.active{
 }
 .section-issues-list ul li{
   padding-left: 40px;
-  padding-right: 40px;
+  padding-right: 100px;
   position: relative;
 }
 .section-issues-list ul li .small{

@@ -58,8 +58,7 @@
                                 <div class="col-xs-12 col-md-4">
                                        
                                         <button type="button" class="btn btn-link inline-block margin-right30px" ng-click="setState('open')">
-                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                            464 Open
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{}}464 Open
                                         </button>
 
                                         <button type="button" class="btn btn-link inline-block " ng-click="setState('closed')">
@@ -112,7 +111,10 @@
                                          <a ng-show="issue.milestone.title" class="list" ng-href="{{issue.milestone.html_url}}" data-toggle="tooltip" data-placement="top" title="{{issue.milestone.title}}"><i class="fa fa-map-signs" aria-hidden="true" ></i>{{issue.milestone.title}}</a>
                                          
                                     </div>
-                                    <div ng-show="issue.comments > 0" class="pull-right position-absolute top-50 right-20px margin-top-n10px">
+                                    <div class="position-absolute top-50 right-70px margin-top-n10px hidden-xs hidden-sm" ng-repeat="avatar in issue.assignees">
+                                        <img ng-src="{{avatar.avatar_url}}" width="20" height="20" title="{{avatar.login}}"/>
+                                    </div>
+                                    <div ng-show="issue.comments > 0" class=" position-absolute top-50 right-20px margin-top-n10px">
                                         <i class="fa fa-comment" aria-hidden="true"></i>
                                         <span>{{issue.comments}}</span>
                                     </div>

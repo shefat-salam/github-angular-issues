@@ -20,6 +20,7 @@ myApp.controller('GitHubIssuesCtrl', ['$scope','$location', '$q', '$rootScope','
             }, function (data) {
                 scope.gitHubData.gitHubIssuesList = data;
                 scope.gitHubData.isInitialized=true;
+                
                
             });
     }
