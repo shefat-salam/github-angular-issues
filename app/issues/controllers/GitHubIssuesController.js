@@ -11,7 +11,7 @@ myApp.controller('GitHubIssuesCtrl', ['$scope','$location', '$q', '$rootScope','
          issueListDirection: 'desc',
          issueListPage: 1
     };
-    
+
     scope.getAllGitHubIssuesData = function(){
             GitHubIssuesFactory.query({
                 state: scope.gitHubData.issueListState,
@@ -20,8 +20,19 @@ myApp.controller('GitHubIssuesCtrl', ['$scope','$location', '$q', '$rootScope','
             }, function (data) {
                 scope.gitHubData.gitHubIssuesList = data;
                 scope.gitHubData.isInitialized=true;
-                
-               
+
+                for(index in scope.gitHubData.gitHubIssuesList.milestone ) {
+                  var openissues = scope.gitHubData.gitHubIssuesList.milestone[index].open_issues;
+                  var closeissues = scope.gitHubData.gitHubIssuesList.milestone[index].open_issues;
+                }
+
+                for(var i in openissues) {
+                   scope.gitHubData.openNum += openissues[i];
+                }
+                for(var i in closeissues) {
+                   scope.gitHubData.closeNum += closeissues[i];
+                }
+
             });
     }
     scope.getStyle = function (taskType) {
@@ -38,21 +49,20 @@ myApp.controller('GitHubIssuesCtrl', ['$scope','$location', '$q', '$rootScope','
     scope.getDay = function(givenDate){
         var today = new Date();
         // var dd = today.getDate();
-        return  Math.floor(( Date.parse(today) - Date.parse(givenDate) ) / 86400000); 
+        return  Math.floor(( Date.parse(today) - Date.parse(givenDate) ) / 86400000);
 
     }
-      
 
-         $('.search-panel .dropdown-menu').find('a').click(function(e) {
-                e.preventDefault();
-                var param = $(this).attr("href").replace("#","");
-                var concept = $(this).text();
-                $('.search-panel span#search_concept').text(concept);
-                $('.input-group #search_param').val(param);
-        });
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+            e.preventDefault();
+            var param = $(this).attr("href").replace("#","");
+            var concept = $(this).text();
+            $('.search-panel span#search_concept').text(concept);
+            $('.input-group #search_param').val(param);
+    });
 
-        $(document).ready(function(){
-                $('[data-toggle="tooltip"]').tooltip(); 
-        });
+    $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+    });
 
 }]);

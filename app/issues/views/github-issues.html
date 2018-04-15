@@ -1,8 +1,8 @@
 <header>
     <div class="container padding15px">
-        
+
             <a class="font-size18px header-title" href="#"><i class="fa fa-building" aria-hidden="true"></i>  angular angular.js</a>
-        
+
     </div>
 </header>
 
@@ -10,7 +10,7 @@
 <section>
     <article>
         <section>
-            <nav>
+            <nav class="clearfix">
                 <ul class="list-unstyled container">
                     <li class="active">
                         <span><i class="fa fa-exclamation-circle"></i> Issues <span class="issue-count">498</span></span>
@@ -21,12 +21,12 @@
                 <!-- notice section start -->
                 <div class="notice-section table-bordered text-center padding24px margin-bottom20px">
                     <h4><g-emoji alias="wave" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji>Want to submit an issue to angular/angular.js?</h4>
-                   <p>If you have a bug or an idea, read the <a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md" target="_blank" title="A must-read for how to contribute to angular/angular.js"> contributing guidelines</a> before opening an issue.</p>                   
+                   <p>If you have a bug or an idea, read the <a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md" target="_blank" title="A must-read for how to contribute to angular/angular.js"> contributing guidelines</a> before opening an issue.</p>
                     <button type="button" class="btn btn-link">Dismiss</button>
                 </div>
                  <!-- notice section end -->
                  <div class="section-search margin-bottom20px">
-                        <div class="row">    
+                        <div class="row">
                             <div class="col-xs-12 col-md-6">
                                 <div class="input-group">
                                     <div class="input-group-btn search-panel">
@@ -43,27 +43,27 @@
                                           <li><a href="#"><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
-                                    <input type="hidden" name="search_param" value="all" id="search_param">         
+                                    <input type="hidden" name="search_param" value="all" id="search_param">
                                     <input type="text" ng-model="filterText" class="form-control" name="x" placeholder="">
-                                    
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                   <!-- section-issues start -->
                   <div class="section-issues table-bordered border-radious-top3px">
                       <div class="section-issues-header bg-f6f8fa padding-tb-5px clearfix">
                           <div class="row">
                                 <div class="col-xs-12 col-md-4">
-                                       
+
                                         <button type="button" class="btn btn-link inline-block margin-right30px" ng-click="setState('open')">
-                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{}}464 Open
+                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{scope.gitHubData.openNum}}464 Open
                                         </button>
 
                                         <button type="button" class="btn btn-link inline-block " ng-click="setState('closed')">
                                                 <i class="fa fa-check" aria-hidden="true"></i>
-                                                464 Closed
+                                                {{scope.gitHubData.closeNum}}464 Closed
                                         </button>
                                 </div>
                                 <div class="col-md-8 hidden-xs hidden-sm">
@@ -94,22 +94,22 @@
                           <ul class="list-unstyled">
                               <li class="border-bottom-1px-ddd padding15px border-last-child-0 position-relative" ng-show="gitHubData.isInitialized" ng-repeat="issue in gitHubData.gitHubIssuesList | filter:filterText">
                                     <i ng-show="issue.state =='open'"  data-toggle="tooltip" data-placement="top" title="{{issue.state}}" class="fa fa-exclamation-circle color-28a745" aria-hidden="true"></i>
-                                    <i ng-show="issue.state =='closed'" data-toggle="tooltip" data-placement="top" title="{{issue.state}}" class="fa fa-exclamation-circle color-cb2431" aria-hidden="true"></i> 
-                                   
+                                    <i ng-show="issue.state =='closed'" data-toggle="tooltip" data-placement="top" title="{{issue.state}}" class="fa fa-exclamation-circle color-cb2431" aria-hidden="true"></i>
+
                                     <a href="#" class="font-size16px font-bold title"> {{issue.title}}</a>
                                     <span class="issue-label" ng-repeat="label in issue.labels">
                                             <button type="button" class="btn btn-default btn-xs"  ng-style="getStyle(label.color)" ><a title="{{label.name}}">{{label.name}}</a> </button>
                                     </span>
                                     <div class="small">
                                          <span class="inline-block margin-right10px" ng-show="issue.state =='open'"> #{{issue.number}} opened {{getDay(issue.created_at)}} days ago by {{issue.user.login}}</span>
-                                         <span class="inline-block margin-right10px" ng-show="issue.state =='closed'"> #{{issue.number}} by <span>{{issue.user.login}}</span> was closed {{getDay(issue.closed_at)}} days ago </span> 
+                                         <span class="inline-block margin-right10px" ng-show="issue.state =='closed'"> #{{issue.number}} by <span>{{issue.user.login}}</span> was closed {{getDay(issue.closed_at)}} days ago </span>
                                          <span class="list inline-block margin-right10px"><i class="fa fa-list" aria-hidden="true"></i>
                                             <span class="task-progress-counts">1 of 3</span>
                                         </span>
                                          <span class="task-progress-bar  margin-right10px"><span class="progress" style="width:33%"></span></span>
 
                                          <a ng-show="issue.milestone.title" class="list" ng-href="{{issue.milestone.html_url}}" data-toggle="tooltip" data-placement="top" title="{{issue.milestone.title}}"><i class="fa fa-map-signs" aria-hidden="true" ></i>{{issue.milestone.title}}</a>
-                                         
+
                                     </div>
                                     <div class="position-absolute top-50 right-70px margin-top-n10px hidden-xs hidden-sm" ng-repeat="avatar in issue.assignees">
                                         <img ng-src="{{avatar.avatar_url}}" width="20" height="20" title="{{avatar.login}}"/>
@@ -118,7 +118,7 @@
                                         <i class="fa fa-comment" aria-hidden="true"></i>
                                         <span>{{issue.comments}}</span>
                                     </div>
-                                    
+
                               </li>
                               <div class="border-bottom-1px-ddd padding15px" ng-show="!gitHubData.isInitialized">
                                 <div class="_4-u2 mbm _2iwp">
